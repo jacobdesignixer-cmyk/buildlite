@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- BuildLite Icon -->
+  <g transform="translate(10, 8)">
+    <!-- Outer house outline -->
+    <path d="M4 34 L4 20 L28 4 L48 18 L48 12 L56 12 L56 24 L64 30 L58 38 L48 30 L28 15 L12 26 L12 56 L32 56 L32 64 L4 64 Z" fill="#01930A"/>
+    <!-- Intersecting / nested house outline -->
+    <path d="M22 28 L40 14 L62 30 L62 64 L42 64 L42 56 L54 56 L54 34 L40 23 L26 34 L26 44 L18 44 L18 31 Z" fill="#01930A"/>
+  </g>
+  <!-- BUILDlite Wordmark -->
+  <text x="88" y="47" font-family="'Urbanist', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="1" fill="#202522">BUILD<tspan font-weight="600" fill="#01930A">lite</tspan></text>
+  <text x="89" y="61" font-family="'Urbanist', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="700" font-size="9" letter-spacing="3.2" fill="#6B7280">MODULAR SYSTEMS</text>
+</svg>

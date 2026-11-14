@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildLite — Premium Modular Building Solutions</title>
+  <meta name="description" content="Discover BuildLite's flexible modular building system. Engineered with Insulated Metal Panels and helical screw pile foundations for four-season Canadian resilience.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Preload Initial Dismantled Hero Frame (Assembly begins from Frame 000000) -->
+  <link rel="preload" as="image" href="public/scroll-frames/frame_000000.jpg" fetchpriority="high">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Sticky Navigation Header (Frosted Glass)
+       ======================================================================== -->
+  <header class="header-wrapper" id="main-navbar">
+    <div class="navbar-container">
+      <a href="#hero-track" class="nav-brand" aria-label="BuildLite Home">
+        <img src="public/images/buildlite-logo.svg" alt="BuildLite Logo" class="nav-logo-img" width="180" height="45">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="nav-menu-desktop" aria-label="Main Navigation">
+        <a href="#system" class="nav-link">Our System</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#packages" class="nav-link">Packages</a>
+        <a href="#why-buildlite" class="nav-link">Why BuildLite</a>
+        <a href="#applications" class="nav-link">Applications</a>
+        <a href="#gallery" class="nav-link">Projects</a>
+      </nav>
+
+      <!-- Desktop Header Actions -->
+      <div class="nav-actions">
+        <a href="mailto:info@buildlite.ca" class="nav-phone-link" aria-label="Email BuildLite">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>info@buildlite.ca</span>
+        </a>
+        <button class="btn btn-primary" data-open-consult aria-label="Book a consultation">
+          <span>Book Consultation</span>
+          <span class="btn-arrow-icon">→</span>
+        </button>
+
+        <!-- Mobile Hamburger -->
+        <button class="mobile-toggle-btn" id="mobile-menu-toggle" aria-label="Open mobile navigation menu" aria-expanded="false">
+          <span class="mobile-toggle-line"></span>
+          <span class="mobile-toggle-line"></span>
+          <span class="mobile-toggle-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-links">
+      <a href="#hero-track" class="mobile-nav-link">Home</a>
+      <a href="#system" class="mobile-nav-link">Our System</a>
+      <a href="#products" class="mobile-nav-link">Products</a>
+      <a href="#packages" class="mobile-nav-link">Packages</a>
+      <a href="#why-buildlite" class="mobile-nav-link">Why BuildLite</a>
+      <a href="#applications" class="mobile-nav-link">Applications</a>
+      <a href="#gallery" class="mobile-nav-link">Projects</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <a href="tel:+18005550199" class="nav-phone-link" style="justify-content: center;">
+        <span>5125 Harvester Rd, Burlington, ON</span>
+      </a>
+      <button class="btn btn-primary" data-open-consult style="width: 100%;">
+        <span>Book Consultation</span>
+      </button>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ========================================================================
+         HERO SECTION: Scroll-Controlled Assembly (Starts Dismantled -> Assembles)
+         ======================================================================== -->
+    <section id="hero-track" aria-label="Scroll controlled modular assembly hero">
+      <div id="hero-sticky-container">
+        <!-- Frame Preloader Bar -->
+        <div class="hero-preloader-indicator" id="hero-preloader-indicator">
+          <div class="hero-progress-bar" id="frame-progress-bar"></div>
+        </div>
+
+        <!-- HTML5 Canvas Renderer -->
+        <canvas id="hero-canvas" width="1280" height="720" aria-hidden="true"></canvas>
+
+        <!-- Gentle Vignette for contrast -->
+        <div class="hero-vignette"></div>
+
+        <!-- Floating Architectural Status Badge during assembly scroll -->
+        <div class="hero-breakdown-badge" id="hero-breakdown-badge" aria-hidden="true">
+          <div class="badge-pulse"></div>
+          <div>
+            <div class="badge-text-primary">Precision Modular Assembly</div>
+            <div class="badge-text-secondary">Assembling 152+ Modular Components & Structural Joists</div>
+          </div>
+        </div>
+
+        <!-- Frame Progress Counter Pill -->
+        <div class="hero-frame-counter-pill" id="hero-frame-counter" aria-hidden="true">
+          Assembly Frame: <span id="frame-counter">1 / 120</span>
+        </div>
+
+        <!-- Text Overlay Content -->
+        <div class="hero-content-wrap">
+          <div class="hero-overlay-center" id="hero-overlay">
+            <span class="hero-tag">Architectural Modular Systems</span>
+            <h1 class="hero-title">Smarter Spaces.<br>Simpler Building.</h1>
+            <p class="hero-subtitle">Scroll down to watch 152+ precision modular components assemble seamlessly into a complete four-season home.</p>
+            <div class="hero-cta-group">
+              <a href="#system" class="btn btn-primary">
+                <span>Explore BuildLite</span>
+                <span class="btn-arrow-icon">→</span>
+              </a>
+              <button class="btn btn-outline-white" data-open-consult>
+                <span>Request Project Guide</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Scroll Prompt Indicator -->
+          <div class="hero-scroll-prompt" id="scroll-prompt">
+            <div class="scroll-indicator-mouse">
+              <div class="scroll-indicator-wheel"></div>
+            </div>
+            <span class="scroll-prompt-text">Scroll to assemble modular building</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 1 – INTRODUCTION ("One Modular System. Infinite Possibilities.")
+         ======================================================================== -->
+    <section class="section intro-section glass-glow-bg" id="system">
+      <div class="container">
+        <div class="intro-grid">
+          <!-- Left Editorial Content -->
+          <div class="intro-content-left reveal">
+            <div class="section-badge">Our System</div>
+            <h2 class="heading-section">One Modular System.<br>Infinite Possibilities.</h2>
+            <p class="text-lead">
+              BuildLite redefines contemporary construction by fusing prefabricated industrial precision with refined architectural design. Every unit is engineered around high-performance thermal envelopes, durable insulated metal panels, and helical screw pile foundations that install with zero soil disruption.
+            </p>
+            <p style="color: var(--color-text-secondary); line-height: 1.7;">
+              Whether deploying a backyard garden suite (ADU) in the Greater Toronto Area or an off-grid wilderness cabin in the Canadian Shield, our modular building methodology condenses months of traditional on-site construction into days of clean, precision assembly.
+            </p>
+
+            <div class="intro-stat-row">
+              <div class="stat-item-glass">
+                <span class="stat-number" data-target="14" data-suffix=" Days">&lt;14 Days</span>
+                <span class="stat-label">Weatherproof Shell Assembly</span>
+              </div>
+              <div class="stat-item-glass">
+                <span class="stat-number" data-target="100" data-suffix="%">100%</span>
+                <span class="stat-label">Four-Season Canadian Climate</span>
+              </div>
+              <div class="stat-item-glass">
+                <span class="stat-number" data-target="0" data-suffix=" Concrete">Zero</span>
+                <span class="stat-label">Concrete Excavation Needed</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px;">
+              <a href="#packages" class="btn btn-charcoal">
+                <span>View Building Packages</span>
+                <span class="btn-arrow-icon">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Axonometric Render with Glass Caption Bar -->
+          <div class="intro-visual-right reveal delay-2">
+            <img src="public/images/cabin-exploded.png" alt="BuildLite Exploded Rooftop Cabin Axonometric View" class="intro-visual-img" data-lightbox-trigger data-title="Exploded Axonometric Assembly" data-desc="Complete architectural exploded view displaying rooftop terrace, spiral staircase, Insulated Metal Panels, and engineered helical foundation.">
+            <div class="axon-caption-bar">
+              <div>
+                <div class="axon-caption-title">Prefabricated Steel & IMP Envelope</div>
+                <div class="axon-caption-sub">Continuous thermal envelope with integrated rooftop terrace</div>
+              </div>
+              <button class="axon-expand-btn" data-lightbox-trigger data-full-img="public/images/cabin-exploded.png" data-title="BuildLite Exploded Modular Architecture" data-desc="Detailed axonometric view showing rooftop terrace, spiral staircase, insulated metal panels, and helical screw piles.">
+                <span>Inspect 4K</span>
+                <span>⊕</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 2 – PRODUCT SHOWCASE (Non-Redundant Authentic Visuals)
+         ======================================================================== -->
+    <section class="section products-section glass-glow-bg" id="products">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-header-col">
+            <div class="section-badge">Product Showcase</div>
+            <h2 class="heading-section">Engineered For Modern Living. Built For Any Landscape.</h2>
+          </div>
+          <p class="text-lead" style="max-width: 480px;">
+            Every BuildLite model utilizes identical high-precision engineering principles: insulated metal envelope, helical foundations, and modular expansion versatility.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <!-- Featured Product: The Skyline Rooftop Cabin -->
+          <article class="product-card-featured reveal">
+            <div class="product-media-wrap">
+              <img src="public/images/cabin-hero.jpg" alt="BuildLite Skyline Rooftop Cabin with Spiral Staircase" class="product-img" loading="lazy">
+              <span class="product-badge-float">Signature Model</span>
+            </div>
+            <div class="product-content">
+              <div class="product-title-row">
+                <div>
+                  <h3 class="heading-card">The Skyline Rooftop Cabin</h3>
+                  <span style="font-size: 0.875rem; color: var(--color-text-muted);">Four-Season Retreat with Rooftop Deck</span>
+                </div>
+                <span class="product-price-est">From $135,000 CAD</span>
+              </div>
+              <p style="color: var(--color-text-secondary); font-size: 0.9375rem; line-height: 1.6;">
+                Our flagship modular design featuring an integrated galvanized steel spiral staircase leading to a full-footprint panoramic rooftop terrace. Engineered with matte charcoal architectural cladding and warm cedar wood window casings.
+              </p>
+
+              <div class="product-specs-grid">
+                <div>
+                  <div class="spec-cell-label">Footprint</div>
+                  <div class="spec-cell-value">320 – 640 sq ft</div>
+                </div>
+                <div>
+                  <div class="spec-cell-label">Roof Deck</div>
+                  <div class="spec-cell-value">Full Perimeter Cable Rail</div>
+                </div>
+                <div>
+                  <div class="spec-cell-label">Thermal Rating</div>
+                  <div class="spec-cell-value">R-30+ Continuous</div>
+                </div>
+                <div>
+                  <div class="spec-cell-label">Foundation</div>
+                  <div class="spec-cell-value">Helical Screw Piles</div>
+                </div>
+                <div>
+                  <div class="spec-cell-label">Shell Assembly</div>
+                  <div class="spec-cell-value">7 – 10 Days</div>
+                </div>
+                <div>
+                  <div class="spec-cell-label">Climate</div>
+                  <div class="spec-cell-value">Zone 5–7 Certified</div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 14px; margin-top: 10px;">
+                <button class="btn btn-primary" data-open-consult data-package-pref="Skyline Rooftop Cabin">
+                  <span>Inquire About Model</span>
+                  <span class="btn-arrow-icon">→</span>
+                </button>
+                <button class="btn btn-outline" data-lightbox-trigger data-full-img="public/images/cabin-hero.jpg" data-title="Skyline Rooftop Cabin" data-desc="BuildLite Signature Rooftop Cabin installed in scenic landscape with wraparound deck and spiral staircase.">
+                  <span>View Photos</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Secondary Product Stack with DISTINCT RELEVANT PHOTOS -->
+          <div class="products-stack-secondary">
+            <!-- Product 2: Garden Suite ADU (New Dedicated Garden ADU Photo) -->
+            <article class="product-card-compact reveal delay-1">
+              <div class="product-compact-media">
+                <img src="public/images/garden-adu.jpg" alt="BuildLite Garden Suite ADU in residential backyard" loading="lazy">
+              </div>
+              <div class="product-compact-content">
+                <div>
+                  <span class="gallery-card-tag" style="color: var(--color-primary-green);">Urban ADU</span>
+                  <h3 class="heading-card" style="font-size: 1.35rem; margin: 4px 0 8px;">The Garden Suite ADU</h3>
+                  <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.5;">
+                    Fully Ontario Building Code compliant backyard residential suite for rental income or multigenerational living. Zero concrete trucks needed.
+                  </p>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
+                  <span style="font-weight: 800; font-family: var(--font-heading); color: var(--color-charcoal);">From $135,000</span>
+                  <button class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8125rem;" data-open-consult data-package-pref="Garden Suite ADU">
+                    <span>Explore</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 3: Studio & Laneway Home (New Dedicated Studio Office Photo) -->
+            <article class="product-card-compact reveal delay-2">
+              <div class="product-compact-media">
+                <img src="public/images/studio-office.jpg" alt="BuildLite Detached Studio Home Office" loading="lazy">
+              </div>
+              <div class="product-compact-content">
+                <div>
+                  <span class="gallery-card-tag" style="color: var(--color-primary-green);">Studio Workspace</span>
+                  <h3 class="heading-card" style="font-size: 1.35rem; margin: 4px 0 8px;">The Studio Laneway</h3>
+                  <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.5;">
+                    A modern detached creative sanctuary or high-yield rental home designed for tight urban corridors with flatbed trailer access.
+                  </p>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
+                  <span style="font-weight: 800; font-family: var(--font-heading); color: var(--color-charcoal);">From $135,000</span>
+                  <button class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8125rem;" data-open-consult data-package-pref="Studio Laneway">
+                    <span>Explore</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 3 – BUILDLITE BUILDING PACKAGES (Frosted Glass Finish)
+         ======================================================================== -->
+    <section class="section packages-section glass-glow-bg" id="packages">
+      <div class="container">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto 48px;" class="reveal">
+          <div class="section-badge" style="justify-content: center;">Building Packages</div>
+          <h2 class="heading-section">Choose Your Level of Finish</h2>
+          <p class="text-lead" style="margin-top: 12px;">
+            Whether you want to build it yourself, partner with our certified assembly crew, or commission a turnkey luxury dwelling, BuildLite offers three transparent delivery tiers.
+          </p>
+        </div>
+
+        <div class="packages-grid">
+          <!-- Tier 1: DIY KIT -->
+          <div class="package-card reveal delay-1" data-package="diy">
+            <div class="package-header">
+              <h3 class="package-tier-name">DIY Kit</h3>
+              <p class="package-tagline">Build it yourself.</p>
+              <div class="package-price-wrap">
+                <div class="package-price-num">~$135,000</div>
+                <div class="package-price-sub">Starting price • Delivery across Ontario</div>
+              </div>
+            </div>
+
+            <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.5;">
+              Ideal for handy homeowners, carpenters, and independent general contractors looking to build a high-performance modular envelope.
+            </p>
+
+            <ul class="package-features-list">
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Complete weather-proof shell delivered to your site</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Insulated Metal Panels (IMP) cut to specification</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Double-pane Low-E argon-filled windows & doors</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Prefabricated structural floor & roof cassette beams</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Comprehensive architectural assembly blueprint</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-outline" data-select-package="DIY Kit" style="width: 100%;">
+              <span>Select DIY Kit</span>
+            </button>
+          </div>
+
+          <!-- Tier 2: PRO-ASSEMBLY (Most Popular) -->
+          <div class="package-card highlight reveal" data-package="pro">
+            <span class="package-popular-tag">Most Popular Choice</span>
+            <div class="package-header">
+              <h3 class="package-tier-name">Pro-Assembly</h3>
+              <p class="package-tagline">We assemble, you customize.</p>
+              <div class="package-price-wrap">
+                <div class="package-price-num">~$155,000</div>
+                <div class="package-price-sub">Starting price • Within 50km of Burlington, ON</div>
+              </div>
+            </div>
+
+            <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.5;">
+              Our factory-certified team installs the helical foundation and erects the weather-tight shell on site, leaving interior fit-out to you.
+            </p>
+
+            <ul class="package-features-list">
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <strong>Includes everything in DIY Kit</strong>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Helical screw pile foundation installation</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Certified on-site shell erection & weatherproofing</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Full exterior envelope sealing & window installation</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Finished lockable weatherproof shell in &lt;14 days</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-primary" data-select-package="Pro-Assembly" style="width: 100%;">
+              <span>Select Pro-Assembly</span>
+              <span class="btn-arrow-icon">→</span>
+            </button>
+          </div>
+
+          <!-- Tier 3: PREMIUM -->
+          <div class="package-card reveal delay-2" data-package="premium">
+            <div class="package-header">
+              <h3 class="package-tier-name">Premium</h3>
+              <p class="package-tagline">Complete custom turnkey unit.</p>
+              <div class="package-price-wrap">
+                <div class="package-price-num">~$300,000</div>
+                <div class="package-price-sub">Starting price • Fully bespoke interior</div>
+              </div>
+            </div>
+
+            <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.5;">
+              Full turnkey luxury service. From site engineering and permitting to bespoke millwork, kitchen, bath, and interior décor.
+            </p>
+
+            <ul class="package-features-list">
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <strong>Turnkey architecture, foundation & shell</strong>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Custom cabinetry, stone countertops & high-end fixtures</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Electrical, plumbing & HVAC heat pump integration</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Rooftop terrace decking, spiral staircase & cable rail</span>
+              </li>
+              <li class="package-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Move-in ready with occupancy sign-off</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-outline" data-select-package="Premium" style="width: 100%;">
+              <span>Select Premium Turnkey</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 4 – WHY BUILDLITE (Dark Glass Cards with Luminous Green Rim)
+         ======================================================================== -->
+    <section class="section why-section glass-glow-bg" id="why-buildlite">
+      <div class="container">
+        <div style="max-width: 680px; margin-bottom: 56px;" class="reveal">
+          <div class="section-badge on-dark">Why BuildLite</div>
+          <h2 class="heading-section on-dark">Architecture Engineered For Speed, Strength & Efficiency.</h2>
+          <p class="text-lead on-dark" style="margin-top: 14px;">
+            Traditional construction suffers from unpredictable delays, weather vulnerability, and expensive concrete ground excavation. BuildLite solves every bottleneck through advanced industrial prefabrication.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <!-- Advantage 1: Helical Piles -->
+          <div class="why-card reveal">
+            <span class="why-card-num">01 / FOUNDATIONS</span>
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M8 6l8 4M8 12l8 4M8 18l8 4"/></svg>
+            </div>
+            <h3 class="why-card-title">Helical Screw Pile Foundations</h3>
+            <p class="why-card-desc">
+              Installed in hours without massive concrete trucks or landscape disruption. Perfectly leveled on rocky slopes, uneven ground, or tight backyard spaces.
+            </p>
+          </div>
+
+          <!-- Advantage 2: IMP Technology -->
+          <div class="why-card reveal delay-1">
+            <span class="why-card-num">02 / THERMAL ENVELOPE</span>
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+            </div>
+            <h3 class="why-card-title">Insulated Metal Panel (IMP)</h3>
+            <p class="why-card-desc">
+              Continuous thermal insulation eliminates thermal bridging. Superior airtight performance guarantees exceptionally low heating and cooling costs year-round.
+            </p>
+          </div>
+
+          <!-- Advantage 3: 4-Season Resilience -->
+          <div class="why-card reveal delay-2">
+            <span class="why-card-num">03 / PERFORMANCE</span>
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <h3 class="why-card-title">Four-Season Climate Resilience</h3>
+            <p class="why-card-desc">
+              Engineered specifically for harsh Canadian winters (-30°C) and hot summers (+35°C), exceeding Ontario Building Code energy and snow load mandates.
+            </p>
+          </div>
+
+          <!-- Advantage 4: High Efficiency Glass -->
+          <div class="why-card reveal">
+            <span class="why-card-num">04 / GLAZING</span>
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg>
+            </div>
+            <h3 class="why-card-title">Energy-Efficient Doors & Windows</h3>
+            <p class="why-card-desc">
+              Oversized European double/triple-glazed low-E argon units bathe interiors in natural daylight while maintaining whisper-quiet acoustic and thermal insulation.
+            </p>
+          </div>
+
+          <!-- Advantage 5: Modular Delivery -->
+          <div class="why-card reveal delay-1">
+            <span class="why-card-num">05 / LOGISTICS</span>
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <h3 class="why-card-title">Flatbed Modular Delivery</h3>
+            <p class="why-card-desc">
+              Shipped flat-packed on standard trailers to navigate tight urban laneways or secluded off-grid trails without requiring oversized crane permits.
+            </p>
+          </div>
+
+          <!-- Advantage 6: Rapid Assembly -->
+          <div class="why-card reveal delay-2">
+            <span class="why-card-num">06 / TIMELINE</span>
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="why-card-title">Under 2-Week Weatherproof Shell</h3>
+            <p class="why-card-desc">
+              Prefabricated components interlock with millimeter precision, eliminating construction noise, neighborhood friction, and weather damage delays.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 5 – BUILT FOR DIFFERENT POSSIBILITIES (Distinct Applications)
+         ======================================================================== -->
+    <section class="section applications-section glass-glow-bg" id="applications">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-header-col">
+            <div class="section-badge">Possibilities</div>
+            <h2 class="heading-section">Tailored Around How You Live, Work & Invest.</h2>
+          </div>
+          <p class="text-lead" style="max-width: 480px;">
+            The BuildLite modular system effortlessly adapts to multiple residential, commercial, and recreational layouts.
+          </p>
+        </div>
+
+        <!-- Application Tabs -->
+        <div class="apps-tab-row reveal">
+          <button class="app-tab-btn active" data-app="adu">ADUs & Garden Suites</button>
+          <button class="app-tab-btn" data-app="cabin">Tiny Homes & Cabins</button>
+          <button class="app-tab-btn" data-app="rentals">High-Yield Rental Units</button>
+          <button class="app-tab-btn" data-app="office">Home Offices & Workspaces</button>
+          <button class="app-tab-btn" data-app="custom">Luxury Custom Interiors</button>
+        </div>
+
+        <!-- Tab 1: ADUs & Garden Suites (Dedicated Garden ADU Photo) -->
+        <div class="app-showcase-panel active" data-app="adu">
+          <div class="app-panel-media">
+            <img src="public/images/garden-adu.jpg" alt="BuildLite Garden Suite ADU in residential lawn" loading="lazy">
+          </div>
+          <div class="app-panel-content">
+            <span class="section-badge" style="margin-bottom: 0;">Urban Housing</span>
+            <h3 class="heading-card" style="font-size: 1.85rem;">Accessory Dwelling Units & Backyard Suites</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.7;">
+              Unlock the latent equity in your backyard. Designed to meet municipal Ontario bylaws with zero massive yard excavation, our garden suites provide independent living for aging parents, adult children, or mortgage-subsidizing tenants.
+            </p>
+            <div class="app-highlights-list">
+              <div class="app-highlight-item">Bypasses concrete truck access limitations</div>
+              <div class="app-highlight-item">Pre-engineered to Ontario Building Code standard</div>
+              <div class="app-highlight-item">Expands living area with integrated outdoor deck</div>
+            </div>
+            <button class="btn btn-charcoal" data-open-consult data-package-pref="Garden Suite ADU">
+              <span>Book ADU Site Feasibility</span>
+              <span class="btn-arrow-icon">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 2: Tiny Homes & Cabins -->
+        <div class="app-showcase-panel" data-app="cabin">
+          <div class="app-panel-media">
+            <img src="public/images/cabin-landscape.jpg" alt="BuildLite Cabin in forest landscape" loading="lazy">
+          </div>
+          <div class="app-panel-content">
+            <span class="section-badge" style="margin-bottom: 0;">Wilderness Retreat</span>
+            <h3 class="heading-card" style="font-size: 1.85rem;">Tiny Homes & Modern Four-Season Cabins</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.7;">
+              Designed for remote lakefront properties, island lots, and rugged forest settings. Insulated metal panels handle heavy snow loads while the screw piles secure directly into uneven bedrock or clay.
+            </p>
+            <div class="app-highlights-list">
+              <div class="app-highlight-item">Off-grid ready (solar, battery, rainwater capture)</div>
+              <div class="app-highlight-item">Rooftop stargazing terrace with spiral staircase</div>
+              <div class="app-highlight-item">Superior airtightness resists extreme winter cold</div>
+            </div>
+            <button class="btn btn-charcoal" data-open-consult data-package-pref="Wilderness Cabin">
+              <span>Design Your Cabin</span>
+              <span class="btn-arrow-icon">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 3: Rentals -->
+        <div class="app-showcase-panel" data-app="rentals">
+          <div class="app-panel-media">
+            <img src="public/images/footer-house.jpg" alt="BuildLite High Yield Rental Unit" loading="lazy">
+          </div>
+          <div class="app-panel-content">
+            <span class="section-badge" style="margin-bottom: 0;">Investor Grade</span>
+            <h3 class="heading-card" style="font-size: 1.85rem;">High-Cash-Flow Rental Units</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.7;">
+              Accelerate cash-flow ROI by cutting construction timelines by over 70%. Durable industrial materials ensure low maintenance overhead, while the stunning rooftop deck commands top rental premiums.
+            </p>
+            <div class="app-highlights-list">
+              <div class="app-highlight-item">Rapid time-to-market generates revenue months sooner</div>
+              <div class="app-highlight-item">Ultra-low utility costs through IMP thermal barrier</div>
+              <div class="app-highlight-item">High tenant appeal with architectural aesthetic</div>
+            </div>
+            <button class="btn btn-charcoal" data-open-consult data-package-pref="Rental Unit">
+              <span>Calculate Rental ROI</span>
+              <span class="btn-arrow-icon">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 4: Workspaces (Dedicated Studio Office Photo) -->
+        <div class="app-showcase-panel" data-app="office">
+          <div class="app-panel-media">
+            <img src="public/images/studio-office.jpg" alt="BuildLite Home Office Studio" loading="lazy">
+          </div>
+          <div class="app-panel-content">
+            <span class="section-badge" style="margin-bottom: 0;">Productivity</span>
+            <h3 class="heading-card" style="font-size: 1.85rem;">Detached Studios & Executive Workspaces</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.7;">
+              Create true boundary between work and domestic life. Acoustically isolated walls, abundant daylighting, and modern architectural elegance provide an inspiring creative sanctuary in your garden.
+            </p>
+            <div class="app-highlights-list">
+              <div class="app-highlight-item">Acoustically insulated for confidential calls</div>
+              <div class="app-highlight-item">High-speed electrical & network conduits</div>
+              <div class="app-highlight-item">Installed in your yard in days without mess</div>
+            </div>
+            <button class="btn btn-charcoal" data-open-consult data-package-pref="Home Office">
+              <span>Explore Studio Units</span>
+              <span class="btn-arrow-icon">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 5: Custom Spaces (Dedicated Luxury Living Interior Photo) -->
+        <div class="app-showcase-panel" data-app="custom">
+          <div class="app-panel-media">
+            <img src="public/images/interior-living.jpg" alt="BuildLite Custom Interior Living Room" loading="lazy">
+          </div>
+          <div class="app-panel-content">
+            <span class="section-badge" style="margin-bottom: 0;">Tailored Architecture</span>
+            <h3 class="heading-card" style="font-size: 1.85rem;">Luxury Custom Living & Interiors</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.7;">
+              Experience custom architectural minimalism. Floor-to-ceiling panoramic glass, bespoke millwork, warm European oak flooring, and custom acoustic ceiling treatments designed around your lifestyle.
+            </p>
+            <div class="app-highlights-list">
+              <div class="app-highlight-item">Floor-to-ceiling sliding glass looking out to nature</div>
+              <div class="app-highlight-item">Integrated radiant heating & smart HVAC controls</div>
+              <div class="app-highlight-item">Engineered with stamped structural drawings</div>
+            </div>
+            <button class="btn btn-charcoal" data-open-consult data-package-pref="Custom Modular">
+              <span>Discuss Custom Vision</span>
+              <span class="btn-arrow-icon">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 6 – DESIGN & CUSTOMIZATION (Frosted Glass Finish)
+         ======================================================================== -->
+    <section class="section custom-section glass-glow-bg" id="customization">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto;" class="reveal">
+          <div class="section-badge" style="justify-content: center;">Flexibility</div>
+          <h2 class="heading-section">Tailored Finishes. Thoughtful Engineering.</h2>
+          <p class="text-lead" style="margin-top: 12px;">
+            Customize your modular structure with high-grade architectural finishes, sustainable energy systems, and tailored interior layouts.
+          </p>
+        </div>
+
+        <div class="custom-grid">
+          <!-- Item 1 -->
+          <div class="custom-card reveal">
+            <div class="custom-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <h3 class="custom-card-title">Exterior Cladding</h3>
+            <p class="custom-card-text">Choose between matte charcoal architectural vertical siding, natural cedar wood trim, or custom powder-coated metal facades.</p>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="custom-card reveal delay-1">
+            <div class="custom-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="custom-card-title">Rooftop Terraces</h3>
+            <p class="custom-card-text">Full-footprint outdoor living decks with architectural spiral staircases, stainless steel cable railings, and outdoor seating options.</p>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="custom-card reveal delay-2">
+            <div class="custom-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <h3 class="custom-card-title">Off-Grid & Solar</h3>
+            <p class="custom-card-text">Integrate rooftop solar arrays, inverter battery storage banks, and greywater management for autonomous eco-living.</p>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="custom-card reveal delay-3">
+            <div class="custom-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h10M7 12h10M7 17h10"/></svg>
+            </div>
+            <h3 class="custom-card-title">Interior Floorplans</h3>
+            <p class="custom-card-text">Optimized studio layouts, 1-bedroom suites, or open concept multi-use offices designed to maximize interior volume.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 7 – PROJECT GALLERY (6 Distinct Authentic Visuals)
+         ======================================================================== -->
+    <section class="section gallery-section glass-glow-bg" id="gallery">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-header-col">
+            <div class="section-badge">Project Gallery</div>
+            <h2 class="heading-section">Authentic Modular Architecture</h2>
+          </div>
+          <div class="gallery-filter-bar">
+            <button class="gallery-filter-btn active" data-filter="all">All Works</button>
+            <button class="gallery-filter-btn" data-filter="cabins">Cabins</button>
+            <button class="gallery-filter-btn" data-filter="interiors">Interiors</button>
+            <button class="gallery-filter-btn" data-filter="studios">Studios & ADUs</button>
+            <button class="gallery-filter-btn" data-filter="engineering">Engineering</button>
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Project 1 (Large span: Skyline Residence) -->
+          <div class="gallery-item span-2 reveal" data-category="cabins" data-lightbox-trigger data-full-img="public/images/cabin-hero.jpg" data-title="Skyline Rooftop Modular Unit" data-desc="Complete BuildLite four-season modular installation with cedar window framing, spiral staircase, and lush green lawn surroundings.">
+            <img src="public/images/cabin-hero.jpg" alt="BuildLite Rooftop Cabin on lawn" class="gallery-item-img" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-card-tag">Modular Cabin</span>
+              <h3 class="gallery-card-title">Skyline Rooftop Residence</h3>
+              <p class="gallery-card-desc">Burlington, Ontario • 4-Season Living with Panoramic Roof Deck</p>
+            </div>
+          </div>
+
+          <!-- Project 2: Interior Living Room (New) -->
+          <div class="gallery-item reveal delay-1" data-category="interiors" data-lightbox-trigger data-full-img="public/images/interior-living.jpg" data-title="Minimalist Interior Living" data-desc="Open concept living with floor-to-ceiling glass sliding doors overlooking the forest, natural oak flooring, and wood-burning stove.">
+            <img src="public/images/interior-living.jpg" alt="BuildLite Interior Living Room" class="gallery-item-img" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-card-tag">Interior Architecture</span>
+              <h3 class="gallery-card-title">Natural Oak & Forest Glazing</h3>
+              <p class="gallery-card-desc">Thermal Argon Sliding Glass Walls</p>
+            </div>
+          </div>
+
+          <!-- Project 3: Backyard Garden ADU (New) -->
+          <div class="gallery-item reveal" data-category="studios" data-lightbox-trigger data-full-img="public/images/garden-adu.jpg" data-title="Backyard Garden Suite ADU" data-desc="High-efficiency single-story accessory dwelling unit nestled in landscaped residential gardens.">
+            <img src="public/images/garden-adu.jpg" alt="BuildLite Backyard ADU Suite" class="gallery-item-img" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-card-tag">Urban ADU</span>
+              <h3 class="gallery-card-title">Backyard Garden Suite</h3>
+              <p class="gallery-card-desc">Toronto & GTA Municipal By-law Compliant</p>
+            </div>
+          </div>
+
+          <!-- Project 4: Studio Office (New) -->
+          <div class="gallery-item reveal delay-1" data-category="studios" data-lightbox-trigger data-full-img="public/images/studio-office.jpg" data-title="Detached Executive Garden Studio" data-desc="Acoustically isolated private creative office with corner sliding doors and warm cedar wood facade.">
+            <img src="public/images/studio-office.jpg" alt="BuildLite Executive Studio Office" class="gallery-item-img" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-card-tag">Workspace</span>
+              <h3 class="gallery-card-title">Detached Executive Studio</h3>
+              <p class="gallery-card-desc">Acoustically Isolated Productivity Sanctuary</p>
+            </div>
+          </div>
+
+          <!-- Project 5: Exploded Axonometric Assembly -->
+          <div class="gallery-item reveal delay-2" data-category="engineering" data-lightbox-trigger data-full-img="public/images/cabin-exploded.png" data-title="Exploded Axonometric Assembly" data-desc="High-resolution architectural breakdown showing structural steel sub-chassis, IMP wall panels, and helical screw piles.">
+            <img src="public/images/cabin-exploded.png" alt="BuildLite Exploded Axonometric" class="gallery-item-img" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-card-tag">Engineering Diagram</span>
+              <h3 class="gallery-card-title">Structural Disassembly</h3>
+              <p class="gallery-card-desc">152+ Interlocking Prefab Components</p>
+            </div>
+          </div>
+
+          <!-- Project 6: Signature 2-Story Modular Architecture -->
+          <div class="gallery-item span-2 reveal" data-category="cabins" data-lightbox-trigger data-full-img="public/images/footer-house.jpg" data-title="Two-Story Modular Home System" data-desc="Complete architectural model displaying two-story modular volume with rooftop deck and spiral staircase.">
+            <img src="public/images/footer-house.jpg" alt="BuildLite Two-Story Modular System" class="gallery-item-img" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-card-tag">Modular System</span>
+              <h3 class="gallery-card-title">Two-Story Modular Ecosystem</h3>
+              <p class="gallery-card-desc">Continuous Insulated Metal Panels with helical foundation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 8 – FINAL CTA
+         ======================================================================== -->
+    <section class="final-cta-section" id="contact">
+      <div class="final-cta-glow"></div>
+      <div class="container">
+        <div class="final-cta-content reveal">
+          <span class="hero-tag">Start Your Project</span>
+          <h2 class="heading-section on-dark" style="font-size: clamp(2.5rem, 5vw, 4rem);">
+            Ready to Build Something Different?
+          </h2>
+          <p class="text-lead on-dark" style="max-width: 600px;">
+            Explore a smarter way to create the space you need. Connect with our Burlington modular engineering team for a feasibility assessment.
+          </p>
+          <div class="hero-cta-group" style="justify-content: center; margin-top: 10px;">
+            <button class="btn btn-primary" data-open-consult>
+              <span>Book Your Consultation</span>
+              <span class="btn-arrow-icon">→</span>
+            </button>
+            <a href="https://www.facebook.com/buildlitehomes/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white">
+              <span>Follow Our Facebook</span>
+              <span class="btn-arrow-icon">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       SECTION 9 – SHOWCASE FOOTER (Inspired by Optik Reference)
+       Modular House Image + Giant Bold "BUILDLITE." Typography
+       ======================================================================== -->
+  <footer class="footer-showcase-section">
+    <!-- Centerpiece Stage: Modular House with Giant Bold Overlapping Typography -->
+    <div class="footer-hero-stage reveal">
+      <div class="footer-house-image-container">
+        <img src="public/images/footer-house.jpg" alt="BuildLite Modular Home Architecture" class="footer-modular-house-img" loading="lazy">
+      </div>
+      <div class="footer-giant-wordmark-wrap">
+        <h2 class="footer-giant-wordmark">BUILDLITE<span class="wordmark-dot">.</span></h2>
+      </div>
+    </div>
+
+    <!-- Main Footer Details & Links -->
+    <div class="footer-main-details">
+      <div class="container">
+        <div class="footer-top-grid">
+          <!-- Brand Info -->
+          <div class="footer-brand-col">
+            <img src="public/images/buildlite-logo-white.svg" alt="BuildLite Logo" class="footer-logo-img">
+            <p class="footer-brand-desc">
+              BuildLite engineers smart, sustainable, four-season modular building solutions across Ontario and Canada.
+            </p>
+            <div class="footer-social-links">
+              <a href="https://www.facebook.com/buildlitehomes/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="BuildLite Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- System & Navigation -->
+          <div>
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-links-list">
+              <li><a href="#hero-track" class="footer-link">Home</a></li>
+              <li><a href="#system" class="footer-link">Our System</a></li>
+              <li><a href="#products" class="footer-link">Products</a></li>
+              <li><a href="#packages" class="footer-link">Building Packages</a></li>
+              <li><a href="#why-buildlite" class="footer-link">Why BuildLite</a></li>
+              <li><a href="#applications" class="footer-link">Applications</a></li>
+            </ul>
+          </div>
+
+          <!-- Products & Packages -->
+          <div>
+            <h4 class="footer-col-title">Packages</h4>
+            <ul class="footer-links-list">
+              <li><a href="#packages" class="footer-link">DIY Kit (~$135k)</a></li>
+              <li><a href="#packages" class="footer-link">Pro-Assembly (~$155k)</a></li>
+              <li><a href="#packages" class="footer-link">Premium Turnkey (~$300k)</a></li>
+              <li><a href="#customization" class="footer-link">Custom Finishes</a></li>
+              <li><a href="#gallery" class="footer-link">Project Gallery</a></li>
+            </ul>
+          </div>
+
+          <!-- Verified Contact Details -->
+          <div>
+            <h4 class="footer-col-title">Contact Us</h4>
+            <div class="footer-contact-info">
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>5125 Harvester Rd, Unit 13<br>Burlington, Ontario, Canada L7L 6A2</span>
+              </div>
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <a href="mailto:info@buildlite.ca" class="footer-link">info@buildlite.ca</a>
+              </div>
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Mon – Fri: 8:00 AM – 5:00 PM EST</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom-bar">
+          <div>© 2026 BuildLite Modular Systems. All rights reserved.</div>
+          <div>Burlington, Ontario, Canada • Engineered for Four-Season Living</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       INTERACTIVE CONSULTATION / QUOTE MODAL (Frosted Glass)
+       ======================================================================== -->
+  <div class="modal-wrapper" id="consult-modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card">
+      <button class="modal-close-btn" id="consult-modal-close" aria-label="Close modal">✕</button>
+
+      <form id="consult-form">
+        <span class="section-badge">Consultation & Quote</span>
+        <h3 id="modal-heading" class="heading-card" style="font-size: 1.75rem; margin-bottom: 8px;">Book Your Project Consultation</h3>
+        <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-bottom: 24px;">
+          Share your location and space requirements. Our modular engineering team will evaluate your property and prepare a preliminary estimate.
+        </p>
+
+        <div class="form-group">
+          <label for="consult-name" class="form-label">Full Name *</label>
+          <input type="text" id="consult-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+        </div>
+
+        <div class="form-group">
+          <label for="consult-email" class="form-label">Email Address *</label>
+          <input type="email" id="consult-email" class="form-input" placeholder="e.g. sarah@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="consult-package" class="form-label">Preferred Building Package</label>
+          <select id="consult-package" class="form-select">
+            <option value="Pro-Assembly">Pro-Assembly (~$155,000) — Certified Shell Build</option>
+            <option value="DIY Kit">DIY Kit (~$135,000) — Self/Contractor Assembly</option>
+            <option value="Premium">Premium (~$300,000) — Turnkey Custom Living</option>
+            <option value="Skyline Rooftop Cabin">Signature Skyline Rooftop Cabin</option>
+            <option value="Garden Suite ADU">Garden Suite Backyard ADU</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="consult-location" class="form-label">Project Location (City / Region)</label>
+          <input type="text" id="consult-location" class="form-input" placeholder="e.g. Burlington, Hamilton, Toronto, Muskoka">
+        </div>
+
+        <div class="form-group">
+          <label for="consult-notes" class="form-label">Project Details / Lot Description</label>
+          <textarea id="consult-notes" class="form-textarea" rows="3" placeholder="Tell us about your property, timeline, or intended use (backyard suite, cabin retreat, office)..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
+          <span>Submit Consultation Request</span>
+          <span class="btn-arrow-icon">→</span>
+        </button>
+      </form>
+
+      <!-- Success State -->
+      <div id="consult-success" style="display: none; text-align: center; padding: 20px 0;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-primary-green-light); color: var(--color-primary-green); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h4 class="heading-card" style="font-size: 1.5rem; margin-bottom: 8px;">Consultation Request Received</h4>
+        <p id="success-details" style="font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 24px;">
+          Thank you! Our engineering team will review your project details and reach out within 24 hours.
+        </p>
+        <button class="btn btn-charcoal" onclick="window.closeConsultModal()">
+          <span>Return to Website</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FULLSCREEN LIGHTBOX MODAL
+       ======================================================================== -->
+  <div class="modal-wrapper" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-card">
+      <button class="modal-close-btn" id="lightbox-close" style="top: -46px; right: 0; background: rgba(255,255,255,0.2); color:#FFFFFF;" aria-label="Close Lightbox">✕</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="Fullscreen Project View">
+      </div>
+      <div class="lightbox-caption">
+        <h4 id="lightbox-title" style="font-family: var(--font-heading); font-size: 1.25rem;"></h4>
+        <p id="lightbox-desc" style="font-size: 0.875rem; color: #A0ABA3; margin-top: 4px;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/hero-canvas.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/packages.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

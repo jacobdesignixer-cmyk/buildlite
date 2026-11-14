@@ -1,0 +1,261 @@
+/* ==========================================================================
+   BuildLite - Hero Frame Animation Styles
+   Sticky full-screen canvas with scroll scrubbing & minimal text overlays
+   ========================================================================== */
+
+#hero-track {
+  position: relative;
+  height: 360vh;
+  background-color: #161a17;
+  /* Prevent horizontal scroll */
+  overflow-x: clip;
+}
+
+#hero-sticky-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  background-color: #181d19;
+}
+
+/* HTML5 Canvas */
+#hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+  /* Maintain crisp rendering */
+  image-rendering: auto;
+}
+
+/* Subtle Vignette to ensure text readability without hiding outdoor lawn/trees */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.45) 100%),
+              linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 70%, rgba(22, 26, 23, 0.85) 100%);
+}
+
+/* Text Overlay Container */
+.hero-content-wrap {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: var(--container-max);
+  padding: 0 var(--section-padding-x);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 140px;
+  padding-bottom: 50px;
+}
+
+.hero-overlay-center {
+  max-width: 680px;
+  pointer-events: auto;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  will-change: opacity, transform;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #55E860;
+  margin-bottom: 18px;
+  background-color: rgba(1, 147, 10, 0.18);
+  border: 1px solid rgba(85, 232, 96, 0.35);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(12px);
+}
+
+.hero-tag::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #55E860;
+  box-shadow: 0 0 10px #55E860;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.75rem, 5.8vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin-bottom: 22px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 34px;
+  max-width: 580px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Floating Status Badge (Appears during disassembly scrubbing) */
+.hero-breakdown-badge {
+  position: absolute;
+  top: 110px;
+  right: var(--section-padding-x);
+  z-index: 5;
+  background: rgba(22, 26, 23, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.badge-pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-primary-green);
+  box-shadow: 0 0 12px var(--color-primary-green);
+  animation: pulseGreen 1.8s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(1, 147, 10, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(1, 147, 10, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(1, 147, 10, 0); }
+}
+
+.badge-text-primary {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+}
+
+.badge-text-secondary {
+  font-size: 0.75rem;
+  color: #A0ABA3;
+}
+
+/* Frame Counter Pill */
+.hero-frame-counter-pill {
+  position: absolute;
+  bottom: 40px;
+  right: var(--section-padding-x);
+  z-index: 5;
+  background: rgba(22, 26, 23, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #A0ABA3;
+  letter-spacing: 0.05em;
+}
+
+.hero-frame-counter-pill span {
+  color: var(--color-primary-green);
+}
+
+/* Scroll Prompt Indicator */
+.hero-scroll-prompt {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  pointer-events: auto;
+  align-self: flex-start;
+  transition: opacity 0.25s ease;
+}
+
+.scroll-indicator-mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-indicator-wheel {
+  width: 4px;
+  height: 7px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  margin-top: 6px;
+  animation: scrollWheel 2s infinite cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(12px); opacity: 0; }
+  61% { transform: translateY(0); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.scroll-prompt-text {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Preloader Progress Bar on Hero */
+.hero-preloader-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  transition: opacity 0.4s ease;
+}
+
+.hero-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary-green), #48D052);
+  transition: width 0.15s ease-out;
+}

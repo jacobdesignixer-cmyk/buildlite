@@ -1,0 +1,1219 @@
+/* ==========================================================================
+   BuildLite - Homepage Sections & Glassmorphism Design
+   Inspired by Optik Architecture Template & Brand Identity
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Ambient Glass Glow Mesh Backgrounds
+   -------------------------------------------------------------------------- */
+.glass-glow-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-glow-bg::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(1, 147, 10, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-glow-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -80px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(1, 147, 10, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Frosted Glass Card Base */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 16px 40px rgba(32, 37, 34, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(32, 37, 34, 0.09), inset 0 1px 1px rgba(255, 255, 255, 1);
+  border-color: rgba(1, 147, 10, 0.25);
+}
+
+/* Dark Glass Card (for dark sections) */
+.glass-card-dark {
+  background: rgba(36, 42, 38, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.glass-card-dark:hover {
+  transform: translateY(-4px);
+  border-color: rgba(85, 232, 96, 0.35);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.45), 0 0 25px rgba(1, 147, 10, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Section 1 – Introduction ("One Modular System. Infinite Possibilities.")
+   -------------------------------------------------------------------------- */
+.intro-section {
+  background-color: var(--color-neutral-white);
+  border-bottom: 1px solid var(--color-border-subtle);
+  position: relative;
+  z-index: 10;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.15fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.intro-content-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.intro-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.stat-item-glass {
+  background: rgba(244, 246, 243, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-md);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+  transition: transform var(--transition-fast);
+}
+
+.stat-item-glass:hover {
+  transform: translateY(-2px);
+  border-color: rgba(1, 147, 10, 0.2);
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-charcoal);
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+}
+
+/* Axonometric Diagram Container */
+.intro-visual-right {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-charcoal-deep);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.intro-visual-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-editorial);
+}
+
+.intro-visual-right:hover .intro-visual-img {
+  transform: scale(1.02);
+}
+
+.axon-caption-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(22, 26, 23, 0.95), rgba(22, 26, 23, 0.5) 70%, transparent);
+  backdrop-filter: blur(8px);
+  padding: 24px 28px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.axon-caption-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.axon-caption-sub {
+  font-size: 0.8125rem;
+  color: #A0ABA3;
+}
+
+.axon-expand-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.axon-expand-btn:hover {
+  background: var(--color-primary-green);
+  border-color: var(--color-primary-green);
+}
+
+/* --------------------------------------------------------------------------
+   Section 2 – Product Showcase (Rich Varied Visuals)
+   -------------------------------------------------------------------------- */
+.products-section {
+  background-color: var(--color-neutral-light);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.section-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.section-header-col {
+  max-width: 620px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 36px;
+}
+
+.product-card-featured {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.product-card-featured:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.09);
+}
+
+.product-media-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--color-charcoal-deep);
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-editorial);
+}
+
+.product-card-featured:hover .product-img {
+  transform: scale(1.04);
+}
+
+.product-badge-float {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(32, 37, 34, 0.85);
+  backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.product-content {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.product-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.product-price-est {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary-green);
+}
+
+.product-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  background: rgba(244, 246, 243, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 18px;
+  border-radius: var(--radius-md);
+  margin-top: 8px;
+}
+
+.spec-cell-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.spec-cell-value {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-top: 3px;
+}
+
+.products-stack-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.product-card-compact {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.product-card-compact:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.product-compact-media {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-compact-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-editorial);
+}
+
+.product-card-compact:hover .product-compact-media img {
+  transform: scale(1.06);
+}
+
+.product-compact-content {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   Section 3 – BuildLite Building Packages (Glass Finish Cards)
+   -------------------------------------------------------------------------- */
+.packages-section {
+  background-color: var(--color-neutral-white);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.package-card {
+  background: rgba(244, 246, 243, 0.65);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  border: 1px solid rgba(32, 37, 34, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.package-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.08);
+  border-color: rgba(1, 147, 10, 0.3);
+}
+
+.package-card.highlight {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--color-primary-green);
+  box-shadow: 0 20px 48px rgba(1, 147, 10, 0.14);
+}
+
+.package-popular-tag {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-primary-green);
+  color: #FFFFFF;
+  padding: 4px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px var(--color-primary-green-glow);
+}
+
+.package-header {
+  margin-bottom: 24px;
+}
+
+.package-tier-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+}
+
+.package-tagline {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary-green);
+  margin-top: 4px;
+}
+
+.package-price-wrap {
+  margin-top: 18px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.package-price-num {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+}
+
+.package-price-sub {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.package-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 28px 0 36px;
+  flex: 1;
+}
+
+.package-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.package-feature-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-primary-green);
+}
+
+/* --------------------------------------------------------------------------
+   Section 4 – Why BuildLite (Frosted Dark Glass Cards)
+   -------------------------------------------------------------------------- */
+.why-section {
+  background: linear-gradient(135deg, #171b18 0%, #1e2420 100%);
+  color: #FFFFFF;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.why-card {
+  background: rgba(36, 43, 38, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(85, 232, 96, 0.4);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.4), 0 0 25px rgba(1, 147, 10, 0.15);
+}
+
+.why-card-num {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #55E860;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.why-card-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: rgba(1, 147, 10, 0.18);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(85, 232, 96, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #55E860;
+}
+
+.why-card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.why-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.why-card-desc {
+  font-size: 0.9375rem;
+  color: #B0B8B2;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Section 5 – Built for Different Possibilities (Glass Panels)
+   -------------------------------------------------------------------------- */
+.applications-section {
+  background-color: var(--color-neutral-white);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.apps-tab-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: 16px;
+  overflow-x: auto;
+}
+
+.app-tab-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  background: rgba(244, 246, 243, 0.6);
+  border: 1px solid var(--color-border-subtle);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.app-tab-btn:hover {
+  color: var(--color-charcoal);
+  border-color: var(--color-border-medium);
+}
+
+.app-tab-btn.active {
+  background-color: var(--color-primary-green);
+  color: #FFFFFF;
+  border-color: var(--color-primary-green);
+  box-shadow: 0 4px 16px var(--color-primary-green-glow);
+}
+
+.app-showcase-panel {
+  display: none;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+  background: rgba(244, 246, 243, 0.65);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.04);
+}
+
+.app-showcase-panel.active {
+  display: grid;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.app-panel-media {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 16 / 10;
+}
+
+.app-panel-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.app-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.app-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0 20px;
+}
+
+.app-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.app-highlight-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-primary-green);
+  box-shadow: 0 0 8px var(--color-primary-green-glow);
+}
+
+/* --------------------------------------------------------------------------
+   Section 6 – Design & Customization (Glass Cards)
+   -------------------------------------------------------------------------- */
+.custom-section {
+  background-color: var(--color-neutral-light);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.custom-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.custom-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.07);
+  border-color: rgba(1, 147, 10, 0.25);
+}
+
+.custom-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--color-primary-green-light);
+  color: var(--color-primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.custom-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.custom-card-text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Section 7 – Authentic Project Gallery
+   -------------------------------------------------------------------------- */
+.gallery-section {
+  background-color: var(--color-neutral-white);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.gallery-filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.gallery-filter-btn {
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  background: rgba(244, 246, 243, 0.8);
+  border: 1px solid var(--color-border-subtle);
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+}
+
+.gallery-filter-btn.active {
+  background-color: var(--color-charcoal);
+  color: #FFFFFF;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.gallery-item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-charcoal-deep);
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-item.span-2 {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+}
+
+.gallery-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-editorial);
+}
+
+.gallery-item:hover .gallery-item-img {
+  transform: scale(1.06);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(22, 26, 23, 0.9) 0%, rgba(22, 26, 23, 0.3) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  color: #FFFFFF;
+  opacity: 0.95;
+  transition: opacity var(--transition-fast);
+}
+
+.gallery-card-tag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #55E860;
+  margin-bottom: 6px;
+}
+
+.gallery-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.gallery-card-desc {
+  font-size: 0.8125rem;
+  color: #B0B8B2;
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Section 8 – Final CTA
+   -------------------------------------------------------------------------- */
+.final-cta-section {
+  background: linear-gradient(135deg, #171b18 0%, #202522 100%);
+  color: #FFFFFF;
+  padding: 140px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(1, 147, 10, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Section 9 – SHOWCASE FOOTER (Inspired by Optik Sample Reference)
+   Modular House Image + Giant Bold "BUILDLITE." Typography
+   -------------------------------------------------------------------------- */
+.footer-showcase-section {
+  background-color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.footer-hero-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-house-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  /* Hover interaction */
+  transition: transform var(--transition-editorial);
+}
+
+.footer-house-image-container:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.footer-modular-house-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.08));
+}
+
+/* Giant Bold Typography Anchor */
+.footer-giant-wordmark-wrap {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-top: -9vw; /* Pulls text up to overlap the base of the house, like Optik */
+  z-index: 3;
+  pointer-events: none;
+}
+
+.footer-giant-wordmark {
+  font-family: var(--font-heading);
+  font-size: clamp(4.5rem, 14.5vw, 13.5rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  display: inline-block;
+  user-select: none;
+}
+
+.footer-giant-wordmark .wordmark-dot {
+  color: var(--color-primary-green);
+}
+
+/* Main Footer Details Bar */
+.footer-main-details {
+  background-color: var(--color-charcoal-deep);
+  color: #FFFFFF;
+  padding: 80px 0 40px;
+  position: relative;
+  z-index: 5;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+}
+
+.footer-brand-desc {
+  font-size: 0.9375rem;
+  color: #9CA3AF;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-link {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: #55E860;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 0.875rem;
+  color: #9CA3AF;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer-contact-item svg {
+  width: 18px;
+  height: 18px;
+  color: #55E860;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.footer-bottom-bar {
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.8125rem;
+  color: #6B7280;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: all var(--transition-fast);
+}
+
+.footer-social-btn:hover {
+  background: var(--color-primary-green);
+  border-color: var(--color-primary-green);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Consultation Modal & Lightbox Styles
+   -------------------------------------------------------------------------- */
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-wrapper.is-open,
+.modal-wrapper.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-backdrop,
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(16, 20, 18, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.modal-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: var(--radius-lg);
+  max-width: 580px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 44px 40px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-wrapper.is-open .modal-card {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-neutral-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background-color: #E2E6E2;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-charcoal);
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border-medium);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  background: rgba(244, 246, 243, 0.8);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-green);
+  background-color: #FFFFFF;
+}
+
+/* Lightbox specific */
+.lightbox-card {
+  position: relative;
+  z-index: 2;
+  max-width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-img-wrap {
+  max-width: 1200px;
+  max-height: 78vh;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-img-wrap img {
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  margin-top: 16px;
+  color: #FFFFFF;
+  text-align: center;
+}
