@@ -231,28 +231,49 @@
 
     // UI Overlays responsive to scroll
     if (heroOverlay) {
-      // Fade out headline and CTA in first 20% of scroll so visitor focuses on assembly
-      const textFade = Math.max(0, 1 - progress * 4.5);
-      heroOverlay.style.opacity = textFade.toFixed(3);
-      heroOverlay.style.transform = `translateY(${(-progress * 70).toFixed(1)}px)`;
-      heroOverlay.style.pointerEvents = textFade < 0.1 ? 'none' : 'auto';
+      // Banner text comes up once the scroll reaches completion (assembled building)
+      // Progress 0.0 -> 0.65: Text hidden so visitor focuses on component assembly
+      // Progress 0.65 -> 0.90: Text smoothly emerges and glides up into position
+      // Progress 0.90 -> 1.0: Text fully visible with interactive CTAs
+      const completionStart = 0.65;
+      const completionEnd = 0.90;
+      let textProgress = 0;
+
+      if (progress >= completionStart) {
+        textProgress = Math.min(1, Math.max(0, (progress - completionStart) / (completionEnd - completionStart)));
+      }
+
+      heroOverlay.style.opacity = textProgress.toFixed(3);
+      const translateY = ((1 - textProgress) * 36).toFixed(1);
+      heroOverlay.style.transform = `translateY(${translateY}px)`;
+      heroOverlay.style.pointerEvents = textProgress > 0.3 ? 'auto' : 'none';
     }
 
     if (scrollPrompt) {
-      const promptFade = Math.max(0, 1 - progress * 6);
+      // Scroll prompt guides visitor at top, fades out quickly once user begins scrolling
+      const promptFade = Math.max(0, 1 - progress * 7);
       scrollPrompt.style.opacity = promptFade.toFixed(3);
+      scrollPrompt.style.pointerEvents = promptFade > 0.1 ? 'auto' : 'none';
     }
 
     if (heroBadge) {
-      // Badge appears during the assembly process (progress > 0.15 and < 0.95)
-      if (progress > 0.15 && progress < 0.95) {
-        const badgeOpacity = Math.min(1, (progress - 0.15) * 4);
-        heroBadge.style.opacity = badgeOpacity.toFixed(3);
-        heroBadge.style.transform = 'translateY(0)';
+      // Dynamic architectural badge state
+      const badgePrimary = heroBadge.querySelector('.badge-text-primary');
+      const badgeSecondary = heroBadge.querySelector('.badge-text-secondary');
+
+      if (progress < 0.15) {
+        if (badgePrimary) badgePrimary.textContent = 'Dismantled Modular Framework';
+        if (badgeSecondary) badgeSecondary.textContent = '152+ Precision Components Ready for Assembly';
+      } else if (progress >= 0.15 && progress < 0.85) {
+        if (badgePrimary) badgePrimary.textContent = 'Precision Modular Assembly';
+        if (badgeSecondary) badgeSecondary.textContent = 'Assembling Components, Panels & Structural Joists';
       } else {
-        heroBadge.style.opacity = '0';
-        heroBadge.style.transform = 'translateY(12px)';
+        if (badgePrimary) badgePrimary.textContent = 'Assembly Complete';
+        if (badgeSecondary) badgeSecondary.textContent = 'Weatherproof Four-Season Modular Residence';
       }
+
+      heroBadge.style.opacity = '1';
+      heroBadge.style.transform = 'translateY(0)';
     }
 
     // Continue loop if still smoothing
@@ -268,4 +289,5 @@
 
   handleResize();
   preloadFrames();
+  updateScrollAnimation();
 })();

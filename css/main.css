@@ -267,24 +267,27 @@ ul, ol {
   transform: translateX(4px);
 }
 
-/* Sticky Navigation Header */
+/* Sticky Navigation Header (Fully visible on initial load) */
 .header-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 18px 0;
-  transition: all var(--transition-smooth);
+  padding: 16px 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(32, 37, 34, 0.08);
+  transition: padding var(--transition-smooth), background-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .header-wrapper.navbar-scrolled {
-  padding: 12px 0;
-  background-color: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  border-bottom: 1px solid rgba(32, 37, 34, 0.06);
+  padding: 11px 0;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(32, 37, 34, 0.1);
 }
 
 .navbar-container {
